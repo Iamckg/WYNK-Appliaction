@@ -1,0 +1,37 @@
+<aura:component controller="RecordSumControllerAura" implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <ltng:require styles="{!$Resource.customStyles}" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:attribute name="userCount" type="Integer" />
+    <aura:attribute name="bannerCount" type="Integer" />
+    <aura:attribute name="emailCount" type="Integer" />
+    <aura:attribute name="notificationCount" type="Integer" />
+
+    <div class="d-flex">
+        <div class="box" Style="margin: 40px;">
+              <a href="https://inspiration-data-9574.my.site.com/wynk/s/recordlist/Customer__c/00B8d00000KiMs4EAF" target="_parent">
+                <h2>Total User:</h2>
+                <p>{!v.userCount}</p>
+            </a>
+        </div>
+        <div class="box" Style="margin: 40px;">
+           <a href="https://inspiration-data-9574.my.site.com/wynk/s/recordlist/Banner__c/00B8d00000KiMs2EAF" target="_parent">
+                <h2>Total Banners:</h2>
+                <p>{!v.bannerCount}</p>
+            </a>
+        </div>
+        <div class="box" Style="margin: 40px;">
+            <a href="https://inspiration-data-9574.my.site.com/wynk/s/recordlist/Email_Template__c/00B8d00000KiMs5EAF" target="_parent">
+                <h2>Total Email Templates:</h2>
+                <p>{!v.emailCount}</p>
+            </a>
+        </div>
+        <div class="box" Style="margin: 40px;">
+           <a href="https://inspiration-data-9574.my.site.com/wynk/s/recordlist/Notification__c/00B8d00000KiMsCEAV" target="_parent">
+                <h2>Total Notifications:</h2>
+                <p>{!v.notificationCount}</p>
+            </a>
+        </div>
+    </div>
+</aura:component>

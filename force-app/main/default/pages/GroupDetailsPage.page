@@ -1,0 +1,48 @@
+<apex:page controller="GroupDetailsController" sidebar="false"  renderAs="pdf">
+
+    <apex:form >
+        <div class="" style="margin-bottom:0;">
+            <h1 style="font-size: 20px; text-align: center;">{!GroupName}</h1>
+            <p style="font-size: 12px; text-align: center;">{!GroupDate}</p>
+            <p style="font-size: 12px; margin-bottom: 5px; text-align: center;">{!Description}</p>
+            <!-- <div style="text-align: center;">
+                <apex:image value="data:image;base64,{!Base64Image}" width="100" height="100" />
+            </div> -->
+        </div>
+        <br/>
+        <div style="margin-top:20px; text-align: center;">
+            <span style="border: 1px solid #000; padding: 10px; margin: 5px 0; font-size: 12px; text-align: center; width:100px background-color: #DCDCDC" >Total Members: {!TotalMembers}</span>
+            <span style="border: 1px solid #000; padding: 10px; margin: 5px 0; font-size: 12px; text-align: center;  width:100px background-color: #DCDCDC">Total Admins: {!TotalAdmin}</span>
+            <span style="border: 1px solid #000; padding: 10px; margin: 5px 0; font-size: 12px; text-align: center; width:100px background-color: #DCDCDC ">Total Tenative: {!TotalTenative}</span>
+            <span style="border: 1px solid #000; padding: 10px; margin: 5px 0; font-size: 12px; text-align: center;  width:100px background-color: #DCDCDC">Total Joined: {!TotalJoined}</span>
+            <span style="border: 1px solid #000; padding: 10px; margin: 5px 0; font-size: 12px; text-align: center;  width:100px background-color: #DCDCDC">Total Declined: {!TotalDeclined}</span>  
+        </div>
+       
+        <br/>
+        <h2 style="font-size: 16px; text-align: center;">Group Members</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tr>
+                <th style="border: 1px solid #000; padding: 8px; text-align: center; background-color: #DCDCDC">First Name</th>
+                <th style="border: 1px solid #000; padding: 8px; text-align: center; background-color: #DCDCDC">Last Name</th>
+                <th style="border: 1px solid #000; padding: 8px; text-align: center; background-color: #DCDCDC">Role</th>
+                <th style="border: 1px solid #000; padding: 8px; text-align: center; background-color: #DCDCDC">Phone</th>
+                <th style="border: 1px solid #000; padding: 8px; text-align: center; background-color: #DCDCDC">Tentative</th>
+                <th style="border: 1px solid #000; padding: 8px; text-align: center; background-color: #DCDCDC">Joined</th>
+                <th style="border: 1px solid #000; padding: 8px; text-align: center; background-color: #DCDCDC">Declined</th>
+                <th style="border: 1px solid #000; padding: 8px; text-align: center; background-color: #DCDCDC">Pending</th>
+            </tr>
+            <apex:repeat value="{!MembersDetails}" var="member">
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center;">{!member['FirstName']}</td>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center;">{!member['LastName']}</td>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center;">{!member['Role']}</td>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center;">{!member['Phone']}</td>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center;">{!member['IsTentative']}</td>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center;">{!member['IsJoined']}</td>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center;">{!member['Declined']}</td>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center;">{!member['Pending']}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+    </apex:form>
+</apex:page>
